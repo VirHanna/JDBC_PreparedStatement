@@ -1,0 +1,29 @@
+-- Таблиця працівників
+CREATE TABLE worker (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    NAME VARCHAR(1000) NOT NULL CHECK (LENGTH(NAME) >= 2),
+    BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),
+    LEVEL VARCHAR(20) NOT NULL CHECK (LEVEL IN ('Trainee', 'Junior', 'Middle', 'Senior')),
+    SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000)
+);
+
+-- Таблиця клієнтів
+CREATE TABLE client (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    NAME VARCHAR(1000) NOT NULL CHECK (LENGTH(NAME) >= 2)
+);
+
+-- Таблиця проєктів
+CREATE TABLE project (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    CLIENT_ID INT REFERENCES client(ID),
+    START_DATE DATE,
+    FINISH_DATE DATE
+);
+
+-- Таблиця проєкт-працівник
+CREATE TABLE project_worker (
+    PROJECT_ID INT REFERENCES project(ID),
+    WORKER_ID INT REFERENCES worker(ID),
+    PRIMARY KEY (PROJECT_ID, WORKER_ID)
+);
