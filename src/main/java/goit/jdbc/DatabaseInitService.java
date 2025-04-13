@@ -1,7 +1,6 @@
 package goit.jdbc;
 
 import goit.jdbc.exception.DatabaseQueryException;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.sql.Connection;

@@ -3,7 +3,6 @@ package goit.jdbc;
 import goit.jdbc.exception.DatabaseQueryException;
 import goit.jdbc.dto.LongestProject;
 import goit.jdbc.dto.MaxProjectCountClient;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
